@@ -3,6 +3,7 @@ package entites;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -40,7 +41,7 @@ public class PetStore implements Serializable {
      * Ensemble des animaux disponibles dans le magasin
      * Relation OneToMany avec l'entite `Animal`, mappee par l'attribut "animal" dans `Animal`
      */
-    @OneToMany(mappedBy = "animal", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "petStore", cascade = CascadeType.ALL)
     private Set<Animal> animals;
 
     /**
@@ -63,6 +64,11 @@ public class PetStore implements Serializable {
     @Embedded
     private Address address;
 
+    /** Variable presente dans tous les constructeurs */
+    {
+        products=new HashSet<Product>();
+        animals=new HashSet<Animal>();
+    }
 
     /** Constructeru vide */
     public PetStore() {

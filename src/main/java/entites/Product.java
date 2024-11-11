@@ -51,7 +51,7 @@ public class Product implements Serializable {
      * Ensemble des magasins d'animaux (PetStore) qui vendent ce produit.
      * Relation ManyToMany mappee par l'attribut "pet_store" dans l'entite `PetStore`.
      */
-    @ManyToMany(mappedBy = "pet_store")
+    @ManyToMany(mappedBy = "products")
     private Set<PetStore> petStores;
 
     /** Variable presente dans tous les constructeurs */

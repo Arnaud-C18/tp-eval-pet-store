@@ -30,7 +30,7 @@ public class Animal  implements Serializable {
     private String couleur;
 
     /** Magasin d'animaux auquel appartient cet animal, reference par une cle etrangere */
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name="PET_STORE_ID")
     private PetStore petStore;
 
